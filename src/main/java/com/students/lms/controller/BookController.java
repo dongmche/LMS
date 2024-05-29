@@ -108,6 +108,14 @@ public class BookController {
         return "books";
     }
 
+    @GetMapping("/books/overdue")
+    public String overdueBooks(Model model) {
+        List<BookDto> books = bookService.findOverdueBooks();
+        model.addAttribute("books", books);
+        return "books";
+    }
+
+
 
     @GetMapping("/users/reports")
     public String getAllReports(Model model){

@@ -23,4 +23,6 @@ public interface BookService {
 //    boolean isAvailableById(long id);
 
     public List<BookDto> findBookByTitle(String title);
+
+    List<BookDto> findOverdueBooks();
 }

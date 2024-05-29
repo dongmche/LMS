@@ -1,5 +1,6 @@
 package com.students.lms;
 
+import com.students.lms.dto.BookDto;
 import com.students.lms.dto.ReportDto;
 import com.students.lms.entity.Report;
 import com.students.lms.repository.BookRepository;
@@ -85,13 +86,19 @@ class StudentManagmentSystemApplicationTests {
 //		System.out.println(isbn);
 
 		List<ReportDto> reportDtoList = reportService.getAll();
-		System.out.println(reportDtoList.size());
+		List<BookDto> bookDtos = bookService.findOverdueBooks();
 
-		for (ReportDto reportDto : reportDtoList) {
-			System.out.println(reportDto.getReportStatus());
-			System.out.println(reportDto.getIsbn());
-			System.out.println(reportDto.getUserEmail());
+		for (BookDto bookDto : bookDtos){
+			System.out.println(bookDto);
 		}
+
+//		System.out.println(reportDtoList.size());
+//
+//		for (ReportDto reportDto : reportDtoList) {
+//			System.out.println(reportDto.getReportStatus());
+//			System.out.println(reportDto.getIsbn());
+//			System.out.println(reportDto.getUserEmail());
+//		}
 
 	}
 

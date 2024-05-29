@@ -37,8 +37,8 @@
                 <a class="btn btn-primary" th:if="${book.user != null && book.user.email.equals(email)}"
                    th:href="@{/books/return/{id}(id=${book.id})}" th:text="'return book'">
                 </a>
-                <span th:if="${book.user != null && book.user.email != email}">
-                        not available
+                <span th:if="${book.user != null && book.user.email != email}"
+                      th:text="'not available until ' + ${book.dueDate}">
                 </span>
 
                 <div class="dropdown" th:if="${book.user == null}">

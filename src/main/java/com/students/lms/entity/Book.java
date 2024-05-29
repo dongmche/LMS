@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,6 +34,18 @@ public class Book {
     private User user;
 
     private LocalDate dueDate;
+
+
+//    @Transient
+//    private boolean isOverdue = false;
+//
+//    @PostLoad
+//    public void calculateIfOverdue(){
+//        if (this.dueDate.isBefore(LocalDate.now())) {
+//            this.isOverdue = true;
+//        }
+//
+//    }
 
 
 

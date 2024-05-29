@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
@@ -16,4 +17,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b.ibsn FROM Book b WHERE b.id = :id")
     String getBookIsbnById(@Param("id") long id);
+
+
+    @Query("SELECT b FROM Book b WHERE b.dueDate > :date")
+    List<Book> findOverdueBooks(@Param("date") LocalDate date);
 }

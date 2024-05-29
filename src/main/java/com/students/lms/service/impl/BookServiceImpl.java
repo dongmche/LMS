@@ -50,8 +50,8 @@ public class BookServiceImpl implements BookService {
         User user = userRepository.findByEmail(email);
 
         Book book = bookRepository.findById(bookId).get();
-        user.addBook(book);
         book.setDueDate(localDate);
+        user.addBook(book);
 
         bookRepository.save(book);
         return true;
@@ -81,6 +81,14 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<BookDto> findBookByTitle(String title) {
         List<Book> books= bookRepository.searchBook(title);
+        return books.stream()
+                .map(book -> BookMapper.mapToBookDto(book))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BookDto> findOverdueBooks() {
+        List<Book> books= bookRepository.findOverdueBooks(LocalDate.now());
         return books.stream()
                 .map(book -> BookMapper.mapToBookDto(book))
                 .collect(Collectors.toList());
