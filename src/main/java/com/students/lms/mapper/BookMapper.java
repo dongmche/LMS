@@ -13,6 +13,7 @@ public class BookMapper {
         bookDto.setTitle(book.getTitle());
         bookDto.setGenre(book.getGenre());
         bookDto.setUser(book.getUser());
+        bookDto.setDueDate(book.getDueDate());
 
         return bookDto;
     }
@@ -24,6 +25,7 @@ public class BookMapper {
         book.setAuthor(bookDto.getAuthor());
         book.setGenre(bookDto.getGenre());
         book.setUser(bookDto.getUser());
+        book.setDueDate(book.getDueDate());
 
 
         return book;

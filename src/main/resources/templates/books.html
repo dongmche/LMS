@@ -47,8 +47,8 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='7')}">one week</a>
-                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='7')}">one month</a>
-                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='7')}">two month</a>
+                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='30')}">one month</a>
+                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='60')}">two month</a>
                     </div>
                 </div>
             </td>

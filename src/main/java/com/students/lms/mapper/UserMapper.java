@@ -19,7 +19,7 @@ public class UserMapper {
             userDto.setId(user.getId());
         }
         userDto.setBooks(user.getBooks());
-//        userDto.getBooks().addAll(user.getBooks());
+
         return userDto;
     }
 
@@ -29,13 +29,13 @@ public class UserMapper {
         user.setEmail(userDto.getEmail());
 
         user.setBooks(userDto.getBooks());
-//        user.getBooks().addAll(userDto.getBooks());
+
 
         if(userDto.getId() != null) {
             user.setId(userDto.getId());
         }
 
-        // should encrypt password
+
         user.setPassword(userDto.getPassword());
         return user;
     }

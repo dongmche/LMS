@@ -2,6 +2,7 @@ package com.students.lms.service;
 
 import com.students.lms.dto.BookDto;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookService {
@@ -11,7 +12,7 @@ public interface BookService {
 
     public boolean updateBook(BookDto bookDto);
 
-    public boolean updateBookUserByBookId(long id, String email);
+    public boolean updateBookUserByBookId(long id, String email, LocalDate localDate);
 
     public String getBookIsbnById(long id);
 

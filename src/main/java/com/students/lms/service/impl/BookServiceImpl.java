@@ -9,6 +9,7 @@ import com.students.lms.entity.User;
 import com.students.lms.mapper.BookMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,11 +46,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public boolean updateBookUserByBookId(long bookId, String email) {
+    public boolean updateBookUserByBookId(long bookId, String email, LocalDate localDate) {
         User user = userRepository.findByEmail(email);
 
         Book book = bookRepository.findById(bookId).get();
         user.addBook(book);
+        book.setDueDate(localDate);
 
         bookRepository.save(book);
         return true;
@@ -70,6 +72,7 @@ public class BookServiceImpl implements BookService {
     public boolean returnBook(long id) {
         Book book = bookRepository.findById(id).get();
         book.setUser(null);
+        book.setDueDate(null);
         bookRepository.save(book);
         return true;
     }

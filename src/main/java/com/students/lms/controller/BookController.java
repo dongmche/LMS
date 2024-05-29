@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -73,12 +74,12 @@ public class BookController {
     // handle books request
     @GetMapping("/books/borrow/{id}/{duration}")
     public String borrowBook(@PathVariable long id, @PathVariable("duration") int duration){
-        System.out.println(duration);
+//        System.out.println(duration);
 
         String email = getCurrentUserEmail();
 
         if (bookService.getBookOwnerEmailById(id) == null) {
-            bookService.updateBookUserByBookId(id, email);
+            bookService.updateBookUserByBookId(id, email, LocalDate.now().plusDays(duration));
             reportService.report(email, bookService.getBookIsbnById(id), ReportStatus.BORROWED);
         }
 
