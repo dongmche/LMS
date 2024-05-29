@@ -1,0 +1,80 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common_head  :: common-head">
+    <title>Specific Page Title</title> <!-- This will be replaced by the fragment -->
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center"> Edit students</h2>
+                </div>
+
+
+                <!-- to get a param from url use param.-->
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">
+                        You have successfully registered
+                    </div>
+                </div>
+
+
+                <!-- email is already in use-->
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        Email or username is already in use, sorry
+                    </div>
+                </div>
+
+
+
+                <div class="card-body">
+                    <form method="post"
+                          role="form"
+                          th:action="@{/users/{userId}/edit(userId=${user.id})}"
+                          th:object="${user}"
+                    >
+                        <div class="form-group mb-3">
+                            <label class="form-label">first name</label>
+                            <label for="firstName"></label>
+                            <input type="text" class="form-control" id="firstName"
+                                   name="firstName" placeholder="enter first name" th:field="*{firstName}" />
+                            <p th:if="${#fields.hasErrors('firstName')}" class="text-danger" th:errors="*{firstName}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">last name</label>
+                            <label for="lastName"></label>
+                            <input type="text" class="form-control" id="lastName"
+                                   name="lastName" placeholder="enter last name" th:field="*{lastName}" />
+                            <p th:if="${#fields.hasErrors('lastName')}" class="text-danger" th:errors="*{lastName}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label"> email </label>
+                            <label for="email"></label>
+                            <input type="email" class="form-control" id="email"
+                                   name="email" placeholder="enter last name" th:field="*{email}" />
+                            <p th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></p>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">
+                            submit
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>>

@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head th:replace="fragments/common_head  :: common-head">
+    <title>Specific Page Title</title> <!-- This will be replaced by the fragment -->
+</head>
+<body>
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    Authenticated as <span sec:authentication="name"></span>-->
+<!--</div>-->
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container">
+        <div class="row col-md-10">
+            <h2>list of books</h2>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th>title</th>
+                <th>author</th>
+                <th>genre</th>
+                <th>action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "book : ${books}">
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.genre}"></td>
+                <td>
+                    <a class="btn btn-primary" th:if="${book.user == null}"
+                       th:href="@{/books/borrow/{id}(id=${book.id})}" th:text="'Borrow book'">
+                    </a>
+                    <a class="btn btn-primary" th:if="${book.user != null && book.user.email.equals(email)}"
+                       th:href="@{/books/return/{id}(id=${book.id})}" th:text="'return book'">
+                    </a>
+                    <span th:if="${book.user != null && book.user.email != email}">
+                        not available
+                    </span>`
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

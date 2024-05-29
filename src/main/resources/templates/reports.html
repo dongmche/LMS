@@ -1,0 +1,31 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common_head  :: common-head">
+    <title>Specific Page Title</title> <!-- This will be replaced by the fragment -->
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row col-md-10">
+        <h2>list of books</h2>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>title</th>
+            <th>author</th>
+            <th>genre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "report : ${reports}">
+            <td th:text="${report.userEmail}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.genre}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/index}">Home page</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--<div sec:authorize="isAuthenticated()">-->
+    <!--    Authenticated as <span sec:authentication="name"></span>-->
+    <!--</div>-->
+<!--    <div sec:authorize="isAuthenticated()">-->
+<!--        <p>Welcome, <span sec:authentication="principal.name"></span>!</p>-->
+<!--    </div>-->
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/book/create}">create book <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/books}">books <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a sec:authorize="!isAuthenticated()" class="nav-link" th:href="@{/register}">Register </a>
+            </li>
+
+            <li class="nav-item active" sec:authorize="isAuthenticated()">
+                <a sec:authorize="isAuthenticated()"
+                   class="nav-link" th:href="@{/logout}"> Logout
+                </a>
+            </li>
+
+
+
+        </ul>
+
+
+        <!--<div sec:authorize="isAuthenticated()">-->
+        <!--    Authenticated as <span sec:authentication="name"></span>-->
+        <!--</div>-->
+
+        <span th:if="${email != null}" th:text="'Logged in as ' + ${email}"></span>
+
+
+        <form action="/books/search" method="get" sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search by title</button>
+        </form>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common_head  :: common-head">
+    <title>Specific Page Title</title> <!-- This will be replaced by the fragment -->
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center"> create book</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" role="form" th:action="@{/book/create}" th:object="${book}">
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="title">Title</label>
+                            <input type="text" class="form-control" id="title"
+                                   name="title" placeholder="Title" th:field="*{title}" />
+                            <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="author">Author</label>
+                            <input type="text" class="form-control" id="author"
+                                   name="author" placeholder="Author" th:field="*{author}" />
+                            <p th:if="${#fields.hasErrors('author')}" class="text-danger" th:errors="*{author}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="ibsn">ISBN</label>
+                            <input type="text" class="form-control" id="ibsn"
+                                   name="ibsn" placeholder="ISBN" th:field="*{ibsn}" />
+                            <p th:if="${#fields.hasErrors('ibsn')}" class="text-danger" th:errors="*{ibsn}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="genre">Genre</label>
+                            <input type="text" class="form-control" id="genre"
+                                   name="genre" placeholder="Genre" th:field="*{genre}" />
+                            <p th:if="${#fields.hasErrors('genre')}" class="text-danger" th:errors="*{genre}"></p>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

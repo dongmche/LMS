@@ -1,0 +1,64 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common_head  :: common-head">
+    <title>Specific Page Title</title> <!-- This will be replaced by the fragment -->
+</head>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">login form</h2>
+                </div>
+
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        invalid username or password
+                    </div>
+                </div>
+
+                <!--  to get a param from url use param.-->
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info">
+                        You have successfully Logged out
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <form method="post"
+                          role="form"
+                          th:action="@{/login}"
+                          class="form-horizontal"
+                    >
+                        <div class="form-group mb-3">
+                            <label for="username">enter email</label>
+                            <input type="text"
+                                   id="username"
+                                   name="username"
+                                   class="form-control"
+                                   placeholder="enter email"
+                            />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password">enter email</label>
+                            <input type="password"
+                                   id="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="enter password"
+                            />
+                        </div>
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <span>Not registered? <a th:href="@{/register}">register</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>

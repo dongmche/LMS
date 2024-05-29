@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+
+
+<!-- Check if the user is authenticated -->
+<!--<div th:if="${#authentication.principal}">-->
+<!--    &lt;!&ndash; Display user details &ndash;&gt;-->
+<!--    <span>Welcome, <span th:text="${#authentication.principal.username}"></span>!</span>-->
+<!--    &lt;!&ndash; Add a logout link &ndash;&gt;-->
+<!--    <a href="/logout">Logout</a>-->
+<!--</div>-->
+<!-- If the user is not authenticated -->
+<div th:unless="${#authentication.principal}">
+    <span>Welcome, Guest!</span>
+    <!-- Add a login link -->
+    <a href="/login">Login</a>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Registration and Login</h1>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
