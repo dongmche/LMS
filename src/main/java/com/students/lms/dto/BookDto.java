@@ -1,7 +1,6 @@
-package com.students.student_managment_system.dto;
+package com.students.lms.dto;
 
-import com.students.student_managment_system.entity.User;
-import jakarta.validation.constraints.Email;
+import com.students.lms.entity.User;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

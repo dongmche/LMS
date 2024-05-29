@@ -1,13 +1,13 @@
-package com.students.student_managment_system.service.impl;
+package com.students.lms.service.impl;
 
-import com.students.student_managment_system.repository.RoleRepository;
-import com.students.student_managment_system.repository.UserRepository;
-import com.students.student_managment_system.service.UserService;
-import com.students.student_managment_system.statics.Statics;
-import com.students.student_managment_system.dto.UserDto;
-import com.students.student_managment_system.entity.Role;
-import com.students.student_managment_system.entity.User;
-import com.students.student_managment_system.mapper.UserMapper;
+import com.students.lms.repository.RoleRepository;
+import com.students.lms.repository.UserRepository;
+import com.students.lms.service.UserService;
+import com.students.lms.statics.Statics;
+import com.students.lms.dto.UserDto;
+import com.students.lms.entity.Role;
+import com.students.lms.entity.User;
+import com.students.lms.mapper.UserMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.students.student_managment_system.repository;
+package com.students.lms.repository;
 
-import com.students.student_managment_system.entity.Report;
+import com.students.lms.entity.Report;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReportRepository extends JpaRepository<Report, Long> {

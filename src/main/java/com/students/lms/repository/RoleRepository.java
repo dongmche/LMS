@@ -1,6 +1,6 @@
-package com.students.student_managment_system.repository;
+package com.students.lms.repository;
 
-import com.students.student_managment_system.entity.Role;
+import com.students.lms.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

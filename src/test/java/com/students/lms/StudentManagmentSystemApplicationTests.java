@@ -1,13 +1,17 @@
-package com.students.student_managment_system;
+package com.students.lms;
 
-import com.students.student_managment_system.repository.BookRepository;
-import com.students.student_managment_system.repository.UserRepository;
-import com.students.student_managment_system.service.BookService;
-import com.students.student_managment_system.service.ReportService;
-import com.students.student_managment_system.service.UserService;
+import com.students.lms.dto.ReportDto;
+import com.students.lms.entity.Report;
+import com.students.lms.repository.BookRepository;
+import com.students.lms.repository.UserRepository;
+import com.students.lms.service.BookService;
+import com.students.lms.service.ReportService;
+import com.students.lms.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class StudentManagmentSystemApplicationTests {
@@ -74,11 +78,20 @@ class StudentManagmentSystemApplicationTests {
 ////		Book book = bookRepository.searchBook("faf");
 //		System.out.println(book);
 
-		String email = bookService.getBookOwnerEmailById(4);
-		System.out.println(email);
-
-		String isbn = bookService.getBookIsbnById(2);
+//		String email = bookService.getBookOwnerEmailById(4);
+//		System.out.println(email);
+//
+//		String isbn = bookService.getBookIsbnById(2);
 //		System.out.println(isbn);
+
+		List<ReportDto> reportDtoList = reportService.getAll();
+		System.out.println(reportDtoList.size());
+
+		for (ReportDto reportDto : reportDtoList) {
+			System.out.println(reportDto.getReportStatus());
+			System.out.println(reportDto.getIsbn());
+			System.out.println(reportDto.getUserEmail());
+		}
 
 	}
 

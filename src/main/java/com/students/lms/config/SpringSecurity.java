@@ -1,7 +1,7 @@
-package com.students.student_managment_system.config;
+package com.students.lms.config;
 
-import com.students.student_managment_system.statics.Statics;
-import com.students.student_managment_system.security.UserDetailsService;
+import com.students.lms.statics.Statics;
+import com.students.lms.security.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

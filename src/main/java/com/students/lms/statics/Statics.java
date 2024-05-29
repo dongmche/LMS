@@ -1,4 +1,4 @@
-package com.students.student_managment_system.statics;
+package com.students.lms.statics;
 
 public class Statics {
     public static final String PRIVILEGED_USER = "ADMIN";

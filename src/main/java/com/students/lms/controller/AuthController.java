@@ -1,7 +1,8 @@
-package com.students.student_managment_system.controller;
+package com.students.lms.controller;
 
-import com.students.student_managment_system.service.UserService;
-import com.students.student_managment_system.dto.UserDto;
+import com.students.lms.dto.ReportDto;
+import com.students.lms.service.UserService;
+import com.students.lms.dto.UserDto;
 import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +22,7 @@ public class AuthController {
     private UserService userService;
 
     public AuthController(UserService userService) {
+
         this.userService = userService;
     }
 
@@ -69,10 +71,7 @@ public class AuthController {
         return "users";
     }
 
-    @GetMapping("/users/reports")
-    public String getAllReports(Model model){
-        return "reports";
-    }
+
 
     @GetMapping("/users/{id}/edit")
     public String editUserGetRoute(@PathVariable long id, Model model){
@@ -86,7 +85,6 @@ public class AuthController {
                                     BindingResult result,
                                     Model model){
         if(result.hasErrors()){
-            System.out.println(result.getAllErrors());
             model.addAttribute("user", userDto);
             return "redirect:/users/"+ userDto.getId() + "/edit?error";
         }

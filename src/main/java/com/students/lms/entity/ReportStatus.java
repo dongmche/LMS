@@ -1,4 +1,4 @@
-package com.students.student_managment_system.entity;
+package com.students.lms.entity;
 
 public enum ReportStatus {
     BORROWED,

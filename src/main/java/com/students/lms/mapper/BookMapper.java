@@ -1,7 +1,7 @@
-package com.students.student_managment_system.mapper;
+package com.students.lms.mapper;
 
-import com.students.student_managment_system.dto.BookDto;
-import com.students.student_managment_system.entity.Book;
+import com.students.lms.dto.BookDto;
+import com.students.lms.entity.Book;
 
 public class BookMapper {
     public static BookDto mapToBookDto(Book book){

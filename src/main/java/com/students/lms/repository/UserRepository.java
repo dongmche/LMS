@@ -1,6 +1,6 @@
-package com.students.student_managment_system.repository;
+package com.students.lms.repository;
 
-import com.students.student_managment_system.entity.User;
+import com.students.lms.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

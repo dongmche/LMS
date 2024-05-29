@@ -1,7 +1,6 @@
-package com.students.student_managment_system.repository;
+package com.students.lms.repository;
 
-import com.students.student_managment_system.entity.Book;
-import jakarta.transaction.Transactional;
+import com.students.lms.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

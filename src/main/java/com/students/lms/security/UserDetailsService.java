@@ -1,7 +1,7 @@
-package com.students.student_managment_system.security;
+package com.students.lms.security;
 
-import com.students.student_managment_system.repository.UserRepository;
-import com.students.student_managment_system.entity.User;
+import com.students.lms.repository.UserRepository;
+import com.students.lms.entity.User;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

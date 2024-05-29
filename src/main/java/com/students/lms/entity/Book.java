@@ -1,16 +1,11 @@
-package com.students.student_managment_system.entity;
+package com.students.lms.entity;
 
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor

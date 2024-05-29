@@ -1,13 +1,12 @@
-package com.students.student_managment_system.service.impl;
+package com.students.lms.service.impl;
 
-import com.students.student_managment_system.repository.BookRepository;
-import com.students.student_managment_system.repository.UserRepository;
-import com.students.student_managment_system.service.BookService;
-import com.students.student_managment_system.dto.BookDto;
-import com.students.student_managment_system.entity.Book;
-import com.students.student_managment_system.entity.User;
-import com.students.student_managment_system.mapper.BookMapper;
-import jakarta.transaction.Transactional;
+import com.students.lms.repository.BookRepository;
+import com.students.lms.repository.UserRepository;
+import com.students.lms.service.BookService;
+import com.students.lms.dto.BookDto;
+import com.students.lms.entity.Book;
+import com.students.lms.entity.User;
+import com.students.lms.mapper.BookMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

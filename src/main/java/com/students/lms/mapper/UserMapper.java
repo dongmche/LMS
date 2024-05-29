@@ -1,11 +1,7 @@
-package com.students.student_managment_system.mapper;
+package com.students.lms.mapper;
 
-import com.students.student_managment_system.dto.UserDto;
-import com.students.student_managment_system.entity.Book;
-import com.students.student_managment_system.entity.User;
-
-import java.util.Set;
-import java.util.stream.Collectors;
+import com.students.lms.dto.UserDto;
+import com.students.lms.entity.User;
 
 public class UserMapper {
     public static UserDto mapToUserDto(User user) {

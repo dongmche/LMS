@@ -1,11 +1,10 @@
-package com.students.student_managment_system.dto;
+package com.students.lms.dto;
 
 
-import com.students.student_managment_system.entity.Book;
+import com.students.lms.entity.Book;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.HashSet;
 import java.util.Set;

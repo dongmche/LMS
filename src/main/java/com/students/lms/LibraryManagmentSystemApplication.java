@@ -1,4 +1,4 @@
-package com.students.student_managment_system;
+package com.students.lms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

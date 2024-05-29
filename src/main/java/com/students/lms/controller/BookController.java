@@ -1,12 +1,13 @@
-package com.students.student_managment_system.controller;
+package com.students.lms.controller;
 
-import com.students.student_managment_system.service.BookService;
-import com.students.student_managment_system.service.ReportService;
-import com.students.student_managment_system.service.UserService;
-import com.students.student_managment_system.dto.BookDto;
-import com.students.student_managment_system.dto.UserDto;
-import com.students.student_managment_system.entity.Book;
-import com.students.student_managment_system.entity.ReportStatus;
+import com.students.lms.dto.ReportDto;
+import com.students.lms.service.BookService;
+import com.students.lms.service.ReportService;
+import com.students.lms.service.UserService;
+import com.students.lms.dto.BookDto;
+import com.students.lms.dto.UserDto;
+import com.students.lms.entity.Book;
+import com.students.lms.entity.ReportStatus;
 import jakarta.validation.Valid;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -104,6 +105,13 @@ public class BookController {
         return "books";
     }
 
+
+    @GetMapping("/users/reports")
+    public String getAllReports(Model model){
+        List<ReportDto> reports = reportService.getAll();
+        model.addAttribute("reports", reports);
+        return "reports";
+    }
 
 
     public static String getCurrentUserEmail() {

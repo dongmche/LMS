@@ -1,11 +1,10 @@
-package com.students.student_managment_system.mapper;
+package com.students.lms.mapper;
 
-import com.students.student_managment_system.dto.ReportDto;
-import com.students.student_managment_system.entity.Report;
-import com.students.student_managment_system.entity.ReportStatus;
+import com.students.lms.dto.ReportDto;
+import com.students.lms.entity.Report;
 
 public class ReportMapper {
-    public static ReportDto mapToReport(Report report){
+    public static ReportDto mapToReportDto(Report report){
         return new ReportDto(report.getId(),report.getUserEmail(),
                 report.getBookISBN(),
                 report.getReportStatus().toString());

@@ -1,6 +1,6 @@
-package com.students.student_managment_system.service;
+package com.students.lms.service;
 
-import com.students.student_managment_system.dto.BookDto;
+import com.students.lms.dto.BookDto;
 
 import java.util.List;
 
