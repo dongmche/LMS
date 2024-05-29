@@ -11,40 +11,54 @@
 <!--    Authenticated as <span sec:authentication="name"></span>-->
 <!--</div>-->
 
-    <div th:replace="fragments/navbar :: navbar"></div>
-    <div class="container">
-        <div class="row col-md-10">
-            <h2>list of books</h2>
-        </div>
-        <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-            <tr>
-                <th>title</th>
-                <th>author</th>
-                <th>genre</th>
-                <th>action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each = "book : ${books}">
-                <td th:text="${book.title}"></td>
-                <td th:text="${book.author}"></td>
-                <td th:text="${book.genre}"></td>
-                <td>
-                    <a class="btn btn-primary" th:if="${book.user == null}"
-                       th:href="@{/books/borrow/{id}(id=${book.id})}" th:text="'Borrow book'">
-                    </a>
-                    <a class="btn btn-primary" th:if="${book.user != null && book.user.email.equals(email)}"
-                       th:href="@{/books/return/{id}(id=${book.id})}" th:text="'return book'">
-                    </a>
-                    <span th:if="${book.user != null && book.user.email != email}">
-                        not available
-                    </span>`
-                </td>
-
-            </tr>
-            </tbody>
-        </table>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row col-md-10">
+        <h2>list of books</h2>
     </div>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>title</th>
+            <th>author</th>
+            <th>genre</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.genre}"></td>
+            <td>
+<!--                <a class="btn btn-primary" th:if="${book.user == null}"-->
+<!--                   th:href="@{/books/borrow/{id}(id=${book.id})}" th:text="'Borrow book'">-->
+<!--                </a>-->
+                <a class="btn btn-primary" th:if="${book.user != null && book.user.email.equals(email)}"
+                   th:href="@{/books/return/{id}(id=${book.id})}" th:text="'return book'">
+                </a>
+                <span th:if="${book.user != null && book.user.email != email}">
+                        not available
+                </span>
+
+                <div class="dropdown" th:if="${book.user == null}">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        borrow book
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='7')}">one week</a>
+                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='7')}">one month</a>
+                        <a class="dropdown-item" th:href="@{/books/borrow/{id}/{duration}(id=${book.id}, duration='7')}">two month</a>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div th:replace="fragments/common_end :: bootstrap-js"></div>
 </body>
 </html>

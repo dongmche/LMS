@@ -33,7 +33,8 @@ public class SpringSecurity {
                 .authorizeRequests()  // Enable request authorization
                 .requestMatchers("/register/**").permitAll()// Allow all requests to /register/**
 //                .requestMatchers("/books/**").permitAll()// Allow all requests to /register/**
-                .requestMatchers("/index/**").permitAll()  // Allow all requests to /index/**
+                .requestMatchers("/index/**").permitAll()  /// Allow all requests to /index/**
+                .requestMatchers("/books/**").permitAll()  /// Allow all requests to /index/**
                 .requestMatchers("/usersdsadsad").hasRole(Statics.PRIVILEGED_USER)  // Restrict /users to users with ADMIN role
                 .anyRequest().authenticated()  // All other requests need to be authenticated
                 .and()

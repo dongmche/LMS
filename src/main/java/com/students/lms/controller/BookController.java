@@ -71,8 +71,10 @@ public class BookController {
     }
 
     // handle books request
-    @GetMapping("/books/borrow/{id}")
-    public String borrowBook(@PathVariable long id){
+    @GetMapping("/books/borrow/{id}/{duration}")
+    public String borrowBook(@PathVariable long id, @PathVariable("duration") int duration){
+        System.out.println(duration);
+
         String email = getCurrentUserEmail();
 
         if (bookService.getBookOwnerEmailById(id) == null) {
