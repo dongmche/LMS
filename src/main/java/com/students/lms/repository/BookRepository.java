@@ -19,6 +19,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     String getBookIsbnById(@Param("id") long id);
 
 
-    @Query("SELECT b FROM Book b WHERE b.dueDate > :date")
+    @Query("SELECT b FROM Book b WHERE b.dueDate < :date")
     List<Book> findOverdueBooks(@Param("date") LocalDate date);
 }
