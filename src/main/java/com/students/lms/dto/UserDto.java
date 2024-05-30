@@ -2,11 +2,13 @@ package com.students.lms.dto;
 
 
 import com.students.lms.entity.Book;
+import com.students.lms.entity.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -30,5 +32,7 @@ public class UserDto {
     private String password;
 
     private Set<Book> books = new HashSet<>();
+
+    private List<Role> roles;
 
 }

@@ -35,7 +35,8 @@ public class SpringSecurity {
 //                .requestMatchers("/books/**").permitAll()// Allow all requests to /register/**
                 .requestMatchers("/index/**").permitAll()  /// Allow all requests to /index/**
                 .requestMatchers("/books/**").permitAll()  /// Allow all requests to /index/**
-                .requestMatchers("/usersdsadsad").hasRole(Statics.PRIVILEGED_USER)  // Restrict /users to users with ADMIN role
+//                .requestMatchers("/users").hasRole(Statics.PRIVILEGED_USER)  // Restrict /users to users with ADMIN role
+                .requestMatchers("/users").hasAuthority(Statics.PRIVILEGED_USER)
                 .anyRequest().authenticated()  // All other requests need to be authenticated
                 .and()
                 .formLogin()  // Enable form login

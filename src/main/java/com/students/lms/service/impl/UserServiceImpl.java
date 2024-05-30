@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
 
-    private static final String DEFAULT_USER = Statics.DEFAULT_USER;
+    private static final String ADMIN = Statics.PRIVILEGED_USER;
 
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -35,9 +35,9 @@ public class UserServiceImpl implements UserService {
     public Boolean createUser(UserDto userDto) {
         User user = UserMapper.mapToUser(userDto);
 
-        Role role = roleRepository.findByName(DEFAULT_USER);
+        Role role = roleRepository.findByName(ADMIN);
         if(role == null){
-            role = checkRoleExist(DEFAULT_USER);
+            role = checkRoleExist(ADMIN);
         }
         user.setRoles(Arrays.asList(role));
 

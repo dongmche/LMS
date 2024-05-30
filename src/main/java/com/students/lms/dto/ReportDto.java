@@ -15,4 +15,6 @@ public class ReportDto {
     private String isbn;
     private String reportStatus;
 
+
+
 }

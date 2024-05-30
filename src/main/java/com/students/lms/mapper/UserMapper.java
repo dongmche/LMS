@@ -19,7 +19,7 @@ public class UserMapper {
             userDto.setId(user.getId());
         }
         userDto.setBooks(user.getBooks());
-
+        userDto.setRoles(user.getRoles());
         return userDto;
     }
 
@@ -35,7 +35,7 @@ public class UserMapper {
             user.setId(userDto.getId());
         }
 
-
+        user.setRoles(userDto.getRoles());
         user.setPassword(userDto.getPassword());
         return user;
     }
